@@ -1,1 +1,15 @@
-site_name: My Docs
+site_name: learnning click  
+nav:
+    - Home: index.md
+    - 第一章关于这本书: chap1.md
+    - 第二章click初步入门: chap2.md
+    - 第三章更多更多的例子: chap3.md
+    - 第四章尝试学习click的源代码: chap4.md
+    - 第五章关于click的一些有用资源: chap5.md
+    - 第六章看看别人是怎么使用click的: chap6.md
+    - 第七章难点: chap7.md
+    - 第八章如果碰巧你也想写一本开源的书: chap8.md
+    - 第九章看看click的竞争对手们: chap9.md
+    - 第十章一些练习: chap10.md
+    - 第十一章遇到过的一些常见问题: chap11.md
+theme: readthedocs
