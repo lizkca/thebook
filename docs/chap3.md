@@ -42,12 +42,53 @@ def delete(page):
 if __name__ == '__main__':
     cli()
 ```
-##3.2 simmarket.py
+##3.2 git.py
+###3.2.1程序简介
+让我们尝试用click来写个迷你的Git程序吧。（希望你曾经用过Git。如果你确实没用过，可以先上网搜一下，并且安装、使用一下这个程序。）
+###3.2.2过程
+1.想一下，我们平时使用Git的一些经典情形。
+```
+git init
+git config --global user.name "[firstname lastname]"
+git config --global user.email "[valid-email]"
+git clone [url]
+git add [file]
+git reset
+git diff
+git diff --staged
+git commit -m "[descriptive message]"
+git branch
+git branch [branch-name]
+git checkout
+git merge [branch]
+git log
+git log branchB...branchA
+git log --follow[file]
+git diff branchB...branchA
+git show [SHA]
+git remote add [alias] [url]
+git fetch [alias]
+git merge [alias]/[branch]
+git pull
+git rm [file]
+git mv [existing-path] [new-path]
+git log --stat -M
+git rebase [branch]
+git reset --hard [commit]
+git status
+git status list
+git stash pop
+git stash drop
+```
+这是[git小抄](https://education.github.com/git-cheat-sheet-education.pdf)上的关于git的命令，我们将实现一部分，剩下的作为练习，由读者你去实现。
+
+2.
+##3.3 simmarket.py
+###3.3.1程序简介
 让我们尝试用click写个游戏程序吧。（当然这是个命令行游戏，对于这一点你不会感到奇怪吧。）尽管click的官方文档从来没说过它可以用来写游戏。
-##3.3 everyday.py
+###3.3.2过程
+##3.4 everyday.py
 让我们写个每天自我评分的程序，记录下每天为实现目标的波形。
-##3.4 git.py
-让我们尝试用click来写个迷你的Git程序吧。（希望你曾经用过Git。如果你确实没用过，可以先上网搜一下，并且安装它，使用一下这个程序。）
 ##3.5 conda.py
 让我们尝试用click来写个迷你的conda程序吧。
 ##3.6 tar.py
