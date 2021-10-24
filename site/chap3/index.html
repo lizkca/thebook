@@ -69,19 +69,37 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#32-simmarketpy">3.2 simmarket.py</a>
+    <li class="toctree-l2"><a class="reference internal" href="#32-gitpy">3.2 git.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#321">3.2.1程序简介</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#33-everydaypy">3.3 everyday.py</a>
+    <li class="toctree-l3"><a class="reference internal" href="#322">3.2.2过程</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#34-gitpy">3.4 git.py</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#33-simmarketpy">3.3 simmarket.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#331">3.3.1程序简介</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#332">3.3.2过程</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#34-everydaypy">3.4 everyday.py</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#35-condapy">3.5 conda.py</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#36-tarpy">3.6 tar.py</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#37-metoopy">3.7 metoo.py</a>
+    <li class="toctree-l2"><a class="reference internal" href="#37-navipy">3.7 navi.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#371">3.7.1程序简介</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#38">3.8 总结</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#38-metoopy">3.8 metoo.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#39">3.9 总结</a>
     </li>
     </ul>
                     </li>
@@ -195,19 +213,60 @@ def delete(page):
 if __name__ == '__main__':
     cli()
 </code></pre>
-<h2 id="32-simmarketpy">3.2 simmarket.py</h2>
+<h2 id="32-gitpy">3.2 git.py</h2>
+<h3 id="321">3.2.1程序简介</h3>
+<p>让我们尝试用click来写个迷你的Git程序吧。（希望你曾经用过Git。如果你确实没用过，可以先上网搜一下，并且安装、使用一下这个程序。）</p>
+<h3 id="322">3.2.2过程</h3>
+<p>1.想一下，我们平时使用Git的一些经典情形。</p>
+<pre><code>git init
+git config --global user.name &quot;[firstname lastname]&quot;
+git config --global user.email &quot;[valid-email]&quot;
+git clone [url]
+git add [file]
+git reset
+git diff
+git diff --staged
+git commit -m &quot;[descriptive message]&quot;
+git branch
+git branch [branch-name]
+git checkout
+git merge [branch]
+git log
+git log branchB...branchA
+git log --follow[file]
+git diff branchB...branchA
+git show [SHA]
+git remote add [alias] [url]
+git fetch [alias]
+git merge [alias]/[branch]
+git pull
+git rm [file]
+git mv [existing-path] [new-path]
+git log --stat -M
+git rebase [branch]
+git reset --hard [commit]
+git status
+git status list
+git stash pop
+git stash drop
+</code></pre>
+<p>这是<a href="https://education.github.com/git-cheat-sheet-education.pdf">git小抄</a>上的关于git的命令，我们将实现一部分，剩下的作为练习，由读者你去实现。</p>
+<p>2.</p>
+<h2 id="33-simmarketpy">3.3 simmarket.py</h2>
+<h3 id="331">3.3.1程序简介</h3>
 <p>让我们尝试用click写个游戏程序吧。（当然这是个命令行游戏，对于这一点你不会感到奇怪吧。）尽管click的官方文档从来没说过它可以用来写游戏。</p>
-<h2 id="33-everydaypy">3.3 everyday.py</h2>
+<h3 id="332">3.3.2过程</h3>
+<h2 id="34-everydaypy">3.4 everyday.py</h2>
 <p>让我们写个每天自我评分的程序，记录下每天为实现目标的波形。</p>
-<h2 id="34-gitpy">3.4 git.py</h2>
-<p>让我们尝试用click来写个迷你的Git程序吧。（希望你曾经用过Git。如果你确实没用过，可以先上网搜一下，并且安装它，使用一下这个程序。）</p>
 <h2 id="35-condapy">3.5 conda.py</h2>
 <p>让我们尝试用click来写个迷你的conda程序吧。</p>
 <h2 id="36-tarpy">3.6 tar.py</h2>
 <p>尝试编写一个压缩，解压缩的程序</p>
-<h2 id="37-metoopy">3.7 metoo.py</h2>
+<h2 id="37-navipy">3.7 navi.py</h2>
+<h3 id="371">3.7.1程序简介</h3>
+<h2 id="38-metoopy">3.8 metoo.py</h2>
 <p>最后作为一个作者，我非常渴望能得到读者的反馈。你的一点点微不足道的反馈，都将是我极大的动力。让我们来写个程序metoo.py程序吧。如果你觉得本书对你有一点点帮助，请运行一下这个程序，让我知道。</p>
-<h2 id="38">3.8 总结</h2>
+<h2 id="39">3.9 总结</h2>
 <p>通过写了这么多个click的程序。你该能感受到click的优点了吧。很多时候，写一个命令行程序，我感到更多需要思考的是如何写这个程序的逻辑本身。也就是说，如何让它变得更cli的程序你不太用思考。你用click可以很自然的让它实现，具有命令行的程序。有一个帮助，解析命令参数，并且可以嵌套，支持子命令。这正说明click的优秀。想一下，如果你要自己实现这些那该多麻烦。但是有了click，叮一声，你就有这些功能了。</p>
               
             </div>
