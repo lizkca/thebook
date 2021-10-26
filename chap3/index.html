@@ -87,7 +87,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#34-everydaypy">3.4 everyday.py</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#35-condapy">3.5 conda.py</a>
+    <li class="toctree-l2"><a class="reference internal" href="#35-learnpy">3.5 learn.py</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#36-tarpy">3.6 tar.py</a>
     </li>
@@ -97,9 +97,17 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#38-metoopy">3.8 metoo.py</a>
+    <li class="toctree-l2"><a class="reference internal" href="#38-bookmarkpy">3.8 bookmark.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#381">3.8.1程序简介</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#39">3.9 总结</a>
+    <li class="toctree-l3"><a class="reference internal" href="#382">3.8.2</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#39-metoopy">3.9 metoo.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#310">3.10 总结</a>
     </li>
     </ul>
                     </li>
@@ -178,7 +186,7 @@
 <ol>
 <li>设想一下，该程序应该有些什么功能。用mit那本经典的魔法书（sicp)教的方法，假设我们已经拥有了这个程序，它会是怎么样的？我想把PDF的全部页面旋转90度:<code>cli rotate input.pdf -a 90</code>
 ，我想把PDF的第三页旋转-90度:<code>cli rotate input.pdf -a "-90" -p 3</code>，想把某个文件夹里的pdf合并成一个新的文件并放到默认的文件夹里: <code>cli meger folder</code>，或者放到一个指定的文件夹里:<code>cli meger folder -o newfolder -n result.pdf</code></li>
-<li>这里要子命令，在click里也很简单，用@click.group()包裹一下就可以了。不理解也没关系，继续看下去就好了。</li>
+<li>这里要用到子命令，在click里也很简单，用@click.group()包裹一下就可以了。不理解也没关系，继续看下去就好了。</li>
 </ol>
 <pre><code>import click
 
@@ -251,22 +259,171 @@ git stash pop
 git stash drop
 </code></pre>
 <p>这是<a href="https://education.github.com/git-cheat-sheet-education.pdf">git小抄</a>上的关于git的命令，我们将实现一部分，剩下的作为练习，由读者你去实现。</p>
+<pre><code>&quot;&quot;&quot; a command line tool for git.&quot;&quot;&quot;
+
+
+import os
+import click
+
+
+class Repo(object):
+    def __init__(self, home=None, debug=False):
+        self.home = os.path.abspath(home or '.')
+        self.debug = debug
+
+
+@click.group()
+def cli():
+    &quot;group cli.&quot;
+
+
+@cli.command()
+@click.option(&quot;-f&quot;, &quot;--path&quot;, &quot;filepath&quot;, default=&quot;e:/a.pdf&quot;)
+def init(filepath):
+    &quot;init&quot;
+    click.echo(&quot;have init in the {filepath}&quot;)
+
+
+@cli.command()
+@click.option(&quot;-f&quot;, &quot;--path&quot;, &quot;filepath&quot;, default=&quot;e:/merge&quot;)
+@click.option(&quot;--global&quot;, &quot;global_&quot;, type=(str, str)) 
+def config(filepath,global_):
+    &quot;config&quot;
+    click.echo(&quot;have merge the {filepath} pdffiles.&quot;)
+    click.echo(&quot;have set{global_[0]) to {global_[1]&quot;)
+
+
+@cli.command()
+@click.option(&quot;-f&quot;, &quot;--path&quot;, &quot;filepath&quot;, default=&quot;e:/a.pdf&quot;)
+@click.option(&quot;-p&quot;, &quot;--page&quot;, &quot;page&quot;, default=0)
+def clone():
+    &quot;clone&quot;
+    click.echo(&quot;have clone}&quot;)
+
+
+@cli.command()
+@click.option(&quot;-p&quot;, &quot;--page&quot;, &quot;page&quot;, default=0)
+@click.option(&quot;-f&quot;, &quot;--path&quot;, &quot;filepath&quot;, default=&quot;e:/a.pdf&quot;)
+def add():
+    &quot;add&quot;
+    click.echo(&quot;have add}&quot;)
+
+
+def reset():
+    pass
+
+
+def diff():
+    pass
+
+
+@cli.command()
+@click.option(&quot;-m&quot;, &quot;--message&quot;, multiple=True)
+def commit(message):
+    &quot;commit&quot;
+    click.echo(&quot;you have commit with the message {message}&quot;)
+
+
+def branch():
+    pass
+
+
+def checkout():
+    pass
+
+
+def merge():
+    pass
+
+def log():
+    pass
+
+def show():
+    pass
+
+def remote():
+    pass
+
+
+def fetch():
+    pass
+
+def merge():
+    pass
+
+
+def pull():
+    pass
+
+
+def rm():
+    pass
+
+
+def mv():
+    pass
+
+
+def rebase():
+
+
+def reset():
+
+
+def status():
+    pass
+
+if __name__ == '__main__':
+    cli()
+</code></pre>
 <p>2.</p>
 <h2 id="33-simmarketpy">3.3 simmarket.py</h2>
 <h3 id="331">3.3.1程序简介</h3>
 <p>让我们尝试用click写个游戏程序吧。（当然这是个命令行游戏，对于这一点你不会感到奇怪吧。）尽管click的官方文档从来没说过它可以用来写游戏。</p>
 <h3 id="332">3.3.2过程</h3>
+<pre><code>
+&quot;&quot;&quot;a cli game,use keyboard a lot.&quot;&quot;&quot;
+
+import click
+import random
+
+commodity = {&quot;water&quot;: 100,&quot;book&quot;: 30, &quot;car&quot;: 1000, &quot;dog&quot;: 50}
+
+def need_cmd():
+    for k, v in commodity.items():
+        click.echo(k,v)
+        click.echo(&quot;what's your choice?&quot;)
+        print(commodity)
+
+
+@click.command()
+@click.option(
+    &quot;--cmd&quot;, prompt=&quot;please keep typing the f j key.&quot;, help=&quot;keep what use typing&quot;
+)
+def cli(cmd):
+    click.echo(f&quot;you have typed {cmd} key.&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    cli()
+    need_cmd()
+
+</code></pre>
 <h2 id="34-everydaypy">3.4 everyday.py</h2>
 <p>让我们写个每天自我评分的程序，记录下每天为实现目标的波形。</p>
-<h2 id="35-condapy">3.5 conda.py</h2>
-<p>让我们尝试用click来写个迷你的conda程序吧。</p>
+<h2 id="35-learnpy">3.5 learn.py</h2>
+<p>让我们尝试用click来写个帮助学习和练习click的程序吧。</p>
 <h2 id="36-tarpy">3.6 tar.py</h2>
 <p>尝试编写一个压缩，解压缩的程序</p>
 <h2 id="37-navipy">3.7 navi.py</h2>
 <h3 id="371">3.7.1程序简介</h3>
-<h2 id="38-metoopy">3.8 metoo.py</h2>
+<h2 id="38-bookmarkpy">3.8 bookmark.py</h2>
+<h3 id="381">3.8.1程序简介</h3>
+<p>我看到好一点的网站就喜欢把它的网址保存下来，这导致我的书签变得越来越多。我决定用click写个命令行程序，帮我定期把我的书签发布出来。</p>
+<h3 id="382">3.8.2</h3>
+<h2 id="39-metoopy">3.9 metoo.py</h2>
 <p>最后作为一个作者，我非常渴望能得到读者的反馈。你的一点点微不足道的反馈，都将是我极大的动力。让我们来写个程序metoo.py程序吧。如果你觉得本书对你有一点点帮助，请运行一下这个程序，让我知道。</p>
-<h2 id="39">3.9 总结</h2>
+<h2 id="310">3.10 总结</h2>
 <p>通过写了这么多个click的程序。你该能感受到click的优点了吧。很多时候，写一个命令行程序，我感到更多需要思考的是如何写这个程序的逻辑本身。也就是说，如何让它变得更cli的程序你不太用思考。你用click可以很自然的让它实现，具有命令行的程序。有一个帮助，解析命令参数，并且可以嵌套，支持子命令。这正说明click的优秀。想一下，如果你要自己实现这些那该多麻烦。但是有了click，叮一声，你就有这些功能了。</p>
               
             </div>
