@@ -1,6 +1,6 @@
-# Learnning Click
+# 学习click(Learnning Click)
 
-"learnning Click" is a free book on programming using the Python language. It serves as a tutorial or guide to the Python module click for a beginner audience. 
+《学习click》是一本免费的书。"learnning Click" is a free book. 关于Python 模块click的。It's about the Python module [click](https://click.palletsprojects.com/en/8.0.x/). 
 
 ## License
 
