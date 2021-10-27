@@ -235,7 +235,30 @@ if __name__ == "__main__":
 
 ```
 ##3.4 everyday.py
+###3.4.1程序简介
 让我们写个每天自我评分的程序，记录下每天为实现目标的波形。
+```
+"""
+everyday.py
+keep record everyday's point.
+"""
+
+import click
+import random 
+
+def everyday():
+    for i in range(90):
+        print("*"*random.randint(0,10))
+
+
+def test_everyday():
+    pass
+
+
+if __name__ == '__main__':
+    everyday()
+
+```
 ##3.5 learn.py
 让我们尝试用click来写个帮助学习和练习click的程序吧。
 ##3.6 tar.py
