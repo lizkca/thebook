@@ -260,6 +260,7 @@ if __name__ == '__main__':
     everyday()
 
 ```
+下一步，我想让它竖向表示。
 ##3.5 learn.py
 让我们尝试用click来写个帮助学习和练习click的程序吧。
 ##3.6 tar.py

@@ -5,6 +5,7 @@
 还有tutorial
 flatex-pdf-download大神牛刀小试
 django-click，
+click也可以这样用，你想到过吗
 
 
 

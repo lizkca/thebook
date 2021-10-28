@@ -2,6 +2,7 @@
 你需要看更多的关于click的开源代码，练习更多。
 1. click的官方文档
 2. click的源代码
+关注issues,pull requests,contributors,used by。从这些地方可以找到更多关于click的资源。
 3. flask的源代码
 4. click-contrib
 5. simonw/click-app
