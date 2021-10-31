@@ -86,14 +86,32 @@
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#34-everydaypy">3.4 everyday.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#341">3.4.1程序简介</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#35-learnpy">3.5 learn.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#351">3.5.1程序简介</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#352">3.5.2</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#36-tarpy">3.6 tar.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#361">3.6.1程序简介</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#362">3.6.2过程</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#37-navipy">3.7 navi.py</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#371">3.7.1程序简介</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#372">3.7.2过程</a>
     </li>
         </ul>
     </li>
@@ -101,7 +119,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#381">3.8.1程序简介</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#382">3.8.2</a>
+    <li class="toctree-l3"><a class="reference internal" href="#382">3.8.2过程</a>
     </li>
         </ul>
     </li>
@@ -381,6 +399,7 @@ if __name__ == '__main__':
 <h3 id="331">3.3.1程序简介</h3>
 <p>让我们尝试用click写个游戏程序吧。（当然这是个命令行游戏，对于这一点你不会感到奇怪吧。）尽管click的官方文档从来没说过它可以用来写游戏。</p>
 <h3 id="332">3.3.2过程</h3>
+<p>该怎么实现这个东西。现在好像没什么头绪。让我们先写个，最简单的，你觉得这个程序是啥样的。（这里有一个要点很重要，哪怕你一点头绪都没，但写个简单的，写一点点东西出来，比你啥都都不写，差距很大。你写出来一点点东西，然后你看着你写出来的，会帮助到你写更多的东西。这点很重要。）</p>
 <pre><code>
 &quot;&quot;&quot;a cli game,use keyboard a lot.&quot;&quot;&quot;
 
@@ -410,17 +429,65 @@ if __name__ == &quot;__main__&quot;:
 
 </code></pre>
 <h2 id="34-everydaypy">3.4 everyday.py</h2>
+<h3 id="341">3.4.1程序简介</h3>
 <p>让我们写个每天自我评分的程序，记录下每天为实现目标的波形。</p>
+<pre><code>&quot;&quot;&quot;
+everyday.py
+keep record everyday's point.
+&quot;&quot;&quot;
+
+import click
+import random 
+
+def everyday():
+    for i in range(90):
+        print(&quot;*&quot;*random.randint(0,10))
+
+
+def test_everyday():
+    pass
+
+
+if __name__ == '__main__':
+    everyday()
+
+</code></pre>
+<p>下一步，我想让它竖向表示。</p>
 <h2 id="35-learnpy">3.5 learn.py</h2>
-<p>让我们尝试用click来写个帮助学习和练习click的程序吧。</p>
+<h3 id="351">3.5.1程序简介</h3>
+<p>我发现学习编程，仅仅看文档（哪怕你看了许多遍，并且知道该怎么做了），是不够的，必须多动手练习。在初学阶段，有时候又不知怎么动手练习，那让我们尝试用click来写个程序帮我们完成这个任务吧。</p>
+<h3 id="352">3.5.2</h3>
+<pre><code>&quot;&quot;&quot;
+learn.py
+&quot;&quot;&quot;
+
+import click
+
+def learn():
+    print(help(click))
+
+if __name__ == '__main__':
+    learn()
+</code></pre>
+<p>没太多头绪，先尽量写出简单的第一版吧，再逐步添加功能吧。
+看了click的文档，我觉得需要动手练习的首先是option这一章。让我们设计点关于option的需动手的练习吧。
+先把要掌握的知识点列一下。
+1.</p>
+<pre><code>import click
+
+
+</code></pre>
 <h2 id="36-tarpy">3.6 tar.py</h2>
+<h3 id="361">3.6.1程序简介</h3>
 <p>尝试编写一个压缩，解压缩的程序</p>
+<h3 id="362">3.6.2过程</h3>
 <h2 id="37-navipy">3.7 navi.py</h2>
 <h3 id="371">3.7.1程序简介</h3>
+<h3 id="372">3.7.2过程</h3>
 <h2 id="38-bookmarkpy">3.8 bookmark.py</h2>
 <h3 id="381">3.8.1程序简介</h3>
 <p>我看到好一点的网站就喜欢把它的网址保存下来，这导致我的书签变得越来越多。我决定用click写个命令行程序，帮我定期把我的书签发布出来。</p>
-<h3 id="382">3.8.2</h3>
+<h3 id="382">3.8.2过程</h3>
 <h2 id="39-metoopy">3.9 metoo.py</h2>
 <p>最后作为一个作者，我非常渴望能得到读者的反馈。你的一点点微不足道的反馈，都将是我极大的动力。让我们来写个程序metoo.py程序吧。如果你觉得本书对你有一点点帮助，请运行一下这个程序，让我知道。</p>
 <h2 id="310">3.10 总结</h2>
