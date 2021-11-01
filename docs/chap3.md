@@ -262,18 +262,93 @@ if __name__ == '__main__':
 ```
 下一步，我想让它竖向表示。
 ##3.5 learn.py
-让我们尝试用click来写个帮助学习和练习click的程序吧。
+###3.5.1程序简介
+我发现学习编程，仅仅看文档（哪怕你看了许多遍，并且知道该怎么做了），是不够的，必须多动手练习。在初学阶段，有时候又不知怎么动手练习，那让我们尝试用click来写个程序帮我们完成这个任务吧。
+###3.5.2
+```
+"""
+learn.py
+"""
+
+import click
+
+def learn():
+    print(help(click))
+
+if __name__ == '__main__':
+    learn()
+```
+没太多头绪，先尽量写出简单的第一版吧，再逐步添加功能吧。
+看了click的文档，我觉得需要动手练习的首先是option这一章。让我们设计点关于option的需动手的练习吧。
+先把要掌握的知识点列一下。
+1. Basic Value Options
+2. Multi Value Options
+3. Tuples as Multi Value Options
+4. Multiple Options
+5. Counting
+6. Boolean Flags 
+7. Feature Switches
+8. Choice Options
+9. Prompting
+10. Password Prompts
+11. Dynamic Defaults for Prompts
+12. Callbacks and Eager Options
+13. Yes Parameters
+14. Values from Environment Variables
+15. Multiple Values from Environment Values
+16. Oter prefix Characters
+17. Range Options
+18. Callbacks for validation
+19. Optional value 
+
+```
+import click
+import random
+
+doc = """
+1. Basic Value Options
+2. Multi Value Options
+3. Tuples as Multi Value Options
+4. Multiple Options
+5. Counting
+6. Boolean Flags 
+7. Feature Switches
+8. Choice Options
+9. Prompting
+10. Password Prompts
+11. Dynamic Defaults for Prompts
+12. Callbacks and Eager Options
+13. Yes Parameters
+14. Values from Environment Variables
+15. Multiple Values from Environment Values
+16. Oter prefix Characters
+17. Range Options
+18. Callbacks for validation
+19. Optional value 
+"""
+def learn():
+    choice = random.range(19)
+    click.echo(choice)
+
+if __name__ == '__main__':
+    learn()
+
+
+```
+
 ##3.6 tar.py
-尝试编写一个压缩，解压缩的程序
+###3.6.1程序简介
+尝试编写一个压缩，解压缩的程序，有时还挺实用的。
+###3.6.2过程
 ##3.7 navi.py
 ###3.7.1程序简介
-
+###3.7.2过程
 ##3.8 bookmark.py
 ###3.8.1程序简介
 我看到好一点的网站就喜欢把它的网址保存下来，这导致我的书签变得越来越多。我决定用click写个命令行程序，帮我定期把我的书签发布出来。
-###3.8.2
+###3.8.2过程
 ##3.9 metoo.py
-最后作为一个作者，我非常渴望能得到读者的反馈。你的一点点微不足道的反馈，都将是我极大的动力。让我们来写个程序metoo.py程序吧。如果你觉得本书对你有一点点帮助，请运行一下这个程序，让我知道。
+最后作为一个作者，我非常渴望能得到读者的反馈。你的一点点微不足道的反馈，都将是我极大的动力。让我们来写个程序metoo.py程序吧。如果你觉得本书对你有一点点帮助，可以运行一下这个程序，让我知道。
 ##3.10 总结
 通过写了这么多个click的程序。你该能感受到click的优点了吧。很多时候，写一个命令行程序，我感到更多需要思考的是如何写这个程序的逻辑本身。也就是说，如何让它变得更cli的程序你不太用思考。你用click可以很自然的让它实现，具有命令行的程序。有一个帮助，解析命令参数，并且可以嵌套，支持子命令。这正说明click的优秀。想一下，如果你要自己实现这些那该多麻烦。但是有了click，叮一声，你就有这些功能了。
 

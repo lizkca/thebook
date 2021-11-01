@@ -5,10 +5,15 @@ keep record everyday's point.
 
 import click
 import random 
+import pickle
+from datetime import date
 
-def everyday():
+@click.command()
+@click.argument("point")
+def everyday(point):
     for i in range(90):
-        print("*"*random.randint(0,10))
+        click.echo("*"*int(point))
+
 
 
 def test_everyday():
