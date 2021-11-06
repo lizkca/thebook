@@ -403,7 +403,8 @@ def cli():
 @click.option("-t", "--test", test, help="Test if a zipfile is valid.")
 @click.argument()
 def zip(create,extract,list_,test):
-    pass
+    if create in not None:
+        zip_name = 
 
 ```
 看了一下文档，我不知道该如何实现tar xf hhh.tar hhh 这样的用法。也就是，用tar xf 而不是tar -x -f。但在click里，怎么实现不用短横线的两个参数呢?也不知道究竟是click不支持这样的用法，还是我不会用。所以，看一下别人是怎么用click的，就很重要。带着这个问题，去看别人怎么用。
@@ -416,6 +417,16 @@ python -m zipfile -e monty.zip target-dir/
 python -m zipfile -l monty.zip
 ```
 我们现在尝试用click来实现
+```
+import click
+import zipfile
+
+@click.command()
+@click.argument('src', type=click.Path(exists=True))
+@click.option('-c','--create',create,is_flag=True)
+def zip(src,create):
+    
+```
 
 ##3.7 navi.py
 ###3.7.1程序简介
@@ -424,9 +435,15 @@ python -m zipfile -l monty.zip
 ###3.8.1程序简介
 我看到好一点的网站就喜欢把它的网址保存下来，这导致我的书签变得越来越多。我决定用click写个命令行程序，帮我定期把我的书签发布出来。
 ###3.8.2过程
-##3.9 metoo.py
+##3.9 words.py
+###3.9.1
+帮助学习单词。可以增加，打星，上网搜查，列出
+words --add implement
+words --learn implement
+words --list
+##3.10 metoo.py
 最后作为一个作者，我非常渴望能得到读者的反馈。你的一点点微不足道的反馈，都将是我极大的动力。让我们来写个程序metoo.py程序吧。如果你觉得本书对你有一点点帮助，可以运行一下这个程序，让我知道。
-##3.10 总结
+##3.11 总结
 通过写了这么多个click的程序。你该能感受到click的优点了吧。很多时候，写一个命令行程序，我感到更多需要思考的是如何写这个程序的逻辑本身。也就是说，如何让它变得更cli的程序你不太用思考。你用click可以很自然的让它实现，具有命令行的程序。有一个帮助，解析命令参数，并且可以嵌套，支持子命令。这正说明click的优秀。想一下，如果你要自己实现这些那该多麻烦。但是有了click，叮一声，你就有这些功能了。
 
 
