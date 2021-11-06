@@ -336,10 +336,87 @@ if __name__ == '__main__':
 
 ```
 
-##3.6 tar.py
+##3.6 zip.py
 ###3.6.1程序简介
 尝试编写一个压缩，解压缩的程序，有时还挺实用的。
 ###3.6.2过程
+看看外观是咋样的？
+```
+"""
+zip.py
+
+先看一下zip的常见用法
+```
+zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$][-b <工作目录>][-ll][-n <字尾字符串>][-t <日期时间>][-<压缩效率>][压缩文件][文件...][-i <范本样式>][-x <范本样式>]
+zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$][-b <工作目录>][-ll][-n <字尾字符串>][-t <日期时间>][-<压缩效率>][压缩文件][文件...][-i <范本样式>][-x <范本样式>]
+参数：
+
+-A 调整可执行的自动解压缩文件。
+-b<工作目录> 指定暂时存放文件的目录。
+-c 替每个被压缩的文件加上注释。
+-d 从压缩文件内删除指定的文件。
+-D 压缩文件内不建立目录名称。
+-f 更新现有的文件。
+-F 尝试修复已损坏的压缩文件。
+-g 将文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。
+-h 在线帮助。
+-i<范本样式> 只压缩符合条件的文件。
+-j 只保存文件名称及其内容，而不存放任何目录名称。
+-J 删除压缩文件前面不必要的数据。
+-k 使用MS-DOS兼容格式的文件名称。
+-l 压缩文件时，把LF字符置换成LF+CR字符。
+-ll 压缩文件时，把LF+CR字符置换成LF字符。
+-L 显示版权信息。
+-m 将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。
+-n<字尾字符串> 不压缩具有特定字尾字符串的文件。
+-o 以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。
+-q 不显示指令执行过程。
+-r 递归处理，将指定目录下的所有文件和子目录一并处理。
+-S 包含系统和隐藏文件。
+-t<日期时间> 把压缩文件的日期设成指定的日期。
+-T 检查备份文件内的每个文件是否正确无误。
+-u 与 -f 参数类似，但是除了更新现有的文件外，也会将压缩文件中的其他文件解压缩到目录中。
+-v 显示指令执行过程或显示版本信息。
+-V 保存VMS操作系统的文件属性。
+-w 在文件名称里假如版本编号，本参数仅在VMS操作系统下有效。
+-x<范本样式> 压缩时排除符合条件的文件。
+-X 不保存额外的文件属性。
+-y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。
+-z 替压缩文件加上注释。
+-$ 保存第一个被压缩文件所在磁盘的卷册名称。
+-<压缩效率> 压缩效率是一个介于1-9的数值。
+```
+"""
+
+import click
+import zipfile
+
+@click.group
+def cli():
+    pass
+
+
+@cli.command()
+@click.option("-c", "--create", create, help="Create zipfile from sources.")
+@click.option("-e", "--extract", extract, help="Extract zipfile into target dir.")
+@click.option("-l", "--list", list_, help="Show listing of a zipfile.)
+@click.option("-t", "--test", test, help="Test if a zipfile is valid.")
+@click.argument()
+def zip(create,extract,list_,test):
+    pass
+
+```
+看了一下文档，我不知道该如何实现tar xf hhh.tar hhh 这样的用法。也就是，用tar xf 而不是tar -x -f。但在click里，怎么实现不用短横线的两个参数呢?也不知道究竟是click不支持这样的用法，还是我不会用。所以，看一下别人是怎么用click的，就很重要。带着这个问题，去看别人怎么用。
+事实上zipfile.py这个标准模块里，有提供这个功能，但不是用click实现的，而是用argparse实现的。（顺便一句，zipfile.py这个标准模块，很适合初学者学习，可以多看看。）
+因此我们可以
+```
+python -m zipfile -c monty.zip spam.txt eggs.txt
+python -m zipfile -c monty.zip life-of-brian_1979/
+python -m zipfile -e monty.zip target-dir/
+python -m zipfile -l monty.zip
+```
+我们现在尝试用click来实现
+
 ##3.7 navi.py
 ###3.7.1程序简介
 ###3.7.2过程
