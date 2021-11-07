@@ -344,9 +344,8 @@ if __name__ == '__main__':
 ```
 """
 zip.py
-
+"""
 先看一下zip的常见用法
-```
 zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$][-b <工作目录>][-ll][-n <字尾字符串>][-t <日期时间>][-<压缩效率>][压缩文件][文件...][-i <范本样式>][-x <范本样式>]
 zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$][-b <工作目录>][-ll][-n <字尾字符串>][-t <日期时间>][-<压缩效率>][压缩文件][文件...][-i <范本样式>][-x <范本样式>]
 参数：
@@ -386,8 +385,8 @@ zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$][-b <工作目录>][-ll][-n <字尾字符串>]
 -$ 保存第一个被压缩文件所在磁盘的卷册名称。
 -<压缩效率> 压缩效率是一个介于1-9的数值。
 ```
-"""
 
+```
 import click
 import zipfile
 
@@ -430,7 +429,13 @@ def zip(src,create):
 
 ##3.7 navi.py
 ###3.7.1程序简介
+```
+navi create babala (2,3)
+navi babala hit (3,4)
+navi babala moveto (3,56) 
+```
 ###3.7.2过程
+
 ##3.8 bookmark.py
 ###3.8.1程序简介
 我看到好一点的网站就喜欢把它的网址保存下来，这导致我的书签变得越来越多。我决定用click写个命令行程序，帮我定期把我的书签发布出来。
