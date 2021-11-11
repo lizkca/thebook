@@ -439,6 +439,10 @@ navi babala moveto (3,56)
 ##3.8 bookmark.py
 ###3.8.1程序简介
 我看到好一点的网站就喜欢把它的网址保存下来，这导致我的书签变得越来越多。我决定用click写个命令行程序，帮我定期把我的书签发布出来。
+bookmark --deploy
+bookmark --count
+bookmark --last
+
 ###3.8.2过程
 ##3.9 words.py
 ###3.9.1
@@ -446,8 +450,13 @@ navi babala moveto (3,56)
 words --add implement
 words --learn implement
 words --list
+words --mark implement
 ##3.10 metoo.py
 最后作为一个作者，我非常渴望能得到读者的反馈。你的一点点微不足道的反馈，都将是我极大的动力。让我们来写个程序metoo.py程序吧。如果你觉得本书对你有一点点帮助，可以运行一下这个程序，让我知道。
+metoo --am "me too"
+metoo --list 
+metoo --head
+metoo --tail
 ##3.11 总结
 通过写了这么多个click的程序。你该能感受到click的优点了吧。很多时候，写一个命令行程序，我感到更多需要思考的是如何写这个程序的逻辑本身。也就是说，如何让它变得更cli的程序你不太用思考。你用click可以很自然的让它实现，具有命令行的程序。有一个帮助，解析命令参数，并且可以嵌套，支持子命令。这正说明click的优秀。想一下，如果你要自己实现这些那该多麻烦。但是有了click，叮一声，你就有这些功能了。
 
