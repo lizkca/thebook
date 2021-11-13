@@ -247,6 +247,21 @@ keep record everyday's point.
 import click
 import random 
 
+# define some 
+# 每天为你的努力打分
+# 每天努力的分数相乘，连续100天。
+# 你每天尽最大努力的10分（拼了命的努力），尽最小的努力是1分（仅仅做了努力），平均努力4分（做了我能做的），完全没有朝你的目标努力得0.8分。
+# 你需要努力100天。平均每天努力超过4分，才能达到你的目的。
+# 请算一下你需要多少分才能成功。如果你，有天少了点努力，那后面你得花多少努力才能补上。
+# 如果你只是每天尽最小努力，和你每天尽平均努力，差距有多大？天文数据。
+# 
+DAYS = 100
+DO_NOTHING = 0.8
+MAX_POINT = 10
+MIN_POINT = 1
+AVERAGE_POINT = 4
+SUCCESS_POINT = pow(AVERAGE_POINT, DAYS) 
+
 def everyday():
     for i in range(90):
         print("*"*random.randint(0,10))
