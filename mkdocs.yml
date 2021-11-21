@@ -20,6 +20,7 @@ plugins:
     - search
     - i18n:
         default_language: zh
-        zh: Chinese
-        en: English
+        languages:
+            zh: Chinese
+            en: English
 
