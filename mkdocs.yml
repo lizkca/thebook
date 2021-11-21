@@ -14,3 +14,5 @@ nav:
     - 第十一章遇到过的一些常见问题: chap11.md
 theme: 
     name: material
+    palette:
+        primary: green
