@@ -16,3 +16,10 @@ theme:
     name: material
     palette:
         primary: green
+plugins:
+    - search
+    - i18n:
+        default_language: zh
+        zh: Chinese
+        en: English
+
