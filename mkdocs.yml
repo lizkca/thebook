@@ -12,4 +12,5 @@ nav:
     - 第九章看看click的竞争对手们: chap9.md
     - 第十章一些练习: chap10.md
     - 第十一章遇到过的一些常见问题: chap11.md
-theme: readthedocs
+theme: 
+    name: material
