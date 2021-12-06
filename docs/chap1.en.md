@@ -13,6 +13,8 @@ If it does, maybe i will do it a lot by writing more open source book.
 By the way, writing an open source book is super easy, it almost cost nothing if you know how to do it.
 and i will talk on that topic at Chap8.After reading that, you might write a open source book too.who knows.
 
+At the end ,i'd like to thanks the people behind Apple, github.com, Mkdocs, Click, Flask.
+
 
 
 
